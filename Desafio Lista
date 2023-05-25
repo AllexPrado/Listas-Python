@@ -1,0 +1,72 @@
+class Compras:
+  def __init__(self, produto, quantidade):
+    self.produto = produto
+    self.quantidade = quantidade
+
+compra = [
+    Compras('Maçâs', 5),
+    Compras('Banana', 3),
+    Compras('Leite', 2),
+]
+
+print(compra[0].produto,'=', compra[0].quantidade)
+print(compra[1].produto,'=', compra[1].quantidade)
+print(compra[2].produto,'=', compra[2].quantidade)
+
+novo_produto = input("\nDigite um novo produto: ")
+quant = int(input("Digite a quantidade desse produto: "))
+
+novo_item = Compras(novo_produto, quant)
+
+compra.append(novo_item)
+
+for item in compra:
+  print(item.produto,'=', item.quantidade)
+
+remover = input("Qual item deseja remover? ")
+
+
+for item in compra:
+  if item.produto == remover:
+    compra.remove(item)
+    break
+
+for item in compra:
+  print(item.produto,'=', item.quantidade)
+
+
+#Responda as seguintes questões: 
+'''
+1. Qual é a principal diferença entre uma lista e uma tupla? 
+
+  a) As listas são imutáveis, enquanto as tuplas são     mutáveis. 
+  b) As listas são indexadas por números inteiros, enquanto as tuplas são indexadas por strings.
+  c) As listas podem conter elementos de tipos diferentes, enquanto as tuplas contêm elementos do mesmo tipo.
+  d) As listas são declaradas com colchetes ([]), enquanto as tuplas são declaradas com parênteses (()). 
+
+  R: d) As listas são declaradas com colchetes ([]), enquanto as tuplas são declaradas com parênteses (()).
+
+2. Explique como você adicionaria um novo item à lista de compras. 
+
+  R: Primeiro criaria uma lista vazia, depois usaria o método append() para adicionar um novo item à lista.
+        Ex: lista_de_compras = []
+             lista_de_compras.append("maçã")
+
+            
+3. Como você removeria um item da lista de compras?   
+  R: Fazer um laço for para percorrer a lista, e uma variável cont para mapear o index dessa lista, quando o valor produto for igual ao valor que o usuário inseriu, a condição da verdadeiro e é usados a função del com o parametro cont que representa o index deste item
+
+4. Descreva brevemente como você implementaria a solução deste desafio em Python. 
+  R:
+  Inicializa uma lista de compras com alguns itens e suas quantidades.
+Percorre a lista de compras e imprime cada produto e sua quantidade.
+Solicita ao usuário que digite um novo produto e sua quantidade, e adiciona essas informações à lista de compras.
+Percorre a lista de compras atualizada e imprime novamente os produtos e suas quantidades.
+Solicita ao usuário que digite o nome de um produto a ser removido da lista.
+Inicializa uma variável chamada "cont" com o valor 0.
+Percorre a lista de compras novamente e verifica se o nome do produto é igual ao produto a ser removido.
+Se for igual, utiliza o comando "del" para remover o item da lista na posição "cont".
+Incrementa o valor de "cont" em 1.
+Percorre a lista de compras atualizada e imprime os produtos e suas quantidades novamente.
+
+'''
